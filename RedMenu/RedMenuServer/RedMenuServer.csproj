@@ -17,6 +17,10 @@
       <HintPath>vendor\cfx\CitizenFX.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
 
   </ItemGroup>
 </Project>
