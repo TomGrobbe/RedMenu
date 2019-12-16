@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
     <DebugType>embedded</DebugType>
-    <TargetName>$(AssemblyName)</TargetName>
     <Configurations>Release;Debug</Configurations>
+    <AssemblyName>RedMenuClient.net</AssemblyName>
+    <TargetName>$(AssemblyName)</TargetName>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,8 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
     <DebugType>embedded</DebugType>
-    <TargetName>$(AssemblyName)</TargetName>
     <Configurations>Release;Debug</Configurations>
+    <AssemblyName>RedMenuServer.net</AssemblyName>
+    <TargetName>$(AssemblyName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Platform)'=='AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
