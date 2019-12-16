@@ -9,10 +9,6 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     
-    <!--<PackageReference Include="CitizenFX.Core.Client" Version="1.0.1883">
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </PackageReference>-->
-
     <!-- currently hardcoded path as no nuget package for RedM exists yet -->
     <Reference Include="CitizenFX.Core.Client">
       <HintPath>vendor\cfx\CitizenFX.Core.dll</HintPath>
