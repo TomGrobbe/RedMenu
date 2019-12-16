@@ -3,9 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedMenuClient", "RedMenuClient\RedMenuClient.csproj", "{D5131BED-ACBE-44CC-AFF5-A48DB7648F6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedMenuClient", "RedMenuClient\RedMenuClient.csproj", "{D5131BED-ACBE-44CC-AFF5-A48DB7648F6D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6323344F-B50E-4CDC-B600-529E71916295} = {6323344F-B50E-4CDC-B600-529E71916295}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedMenuServer", "RedMenuServer\RedMenuServer.csproj", "{6323344F-B50E-4CDC-B600-529E71916295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedMenuServer", "RedMenuServer\RedMenuServer.csproj", "{6323344F-B50E-4CDC-B600-529E71916295}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
