@@ -20,7 +20,7 @@ Feel free to use code from this repo in your own resources, however you must pro
 
 ## Installation
 1. Update your server to the latest artifacts. Yes it's required, don't ask me why, just f'ing do it already, thanks.
-2. Download the latest [RedMenu Release]() zip file - note not the source files, download the actual release files - and extract the contents of the zip file into your server resources folder (preferrably in the `[local]` folder).
+2. Download the latest [RedMenu Release](https://github.com/TomGrobbe/RedMenu/releases/latest) zip file - note not the source files, download the actual release files - and extract the contents of the zip file into your server resources folder (preferrably in the `[local]` folder).
 3. You should now have everything inside: `\resources\[local]\RedMenu\`. If there is no `fxmanifest.lua` in that folder, then you've done it incorrectly.
 A picture for those who can't read: ![](https://vespura.com/hi/i/2019-12-16_17-07_5b40b_2805.png)
 4. Add `start RedMenu` to your `server.cfg`.
