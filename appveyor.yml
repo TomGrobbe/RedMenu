@@ -4,7 +4,7 @@ image: Visual Studio 2019
 configuration:
   - Release
 before_build:
-  - cmd: if %APPVEYOR_REPO_TAG%==true (appveyor SetVariable -Name VERSION_NAME -Value %APPVEYOR_REPO_TAG_NAME%) else (appveyor SetVariable -Name VERSION_NAME -Value 'dev-%APPVEYOR_BUILD_VERSION%')
+  - cmd: if %APPVEYOR_REPO_TAG%==true (appveyor SetVariable -Name VERSION_NAME -Value %APPVEYOR_REPO_TAG_NAME%) else (appveyor SetVariable -Name VERSION_NAME -Value dev-%APPVEYOR_BUILD_VERSION%)
   - cmd: cd RedMenu
   - cmd: mkdir "RedMenu"
   - nuget restore
