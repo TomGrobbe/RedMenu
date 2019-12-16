@@ -21,7 +21,7 @@ after_build:
   - cmd: copy ".\RedMenu\RedMenuServer\bin\Release\net452\*" "RedMenu\RedMenu\"
   - cmd: cd RedMenu
   - cmd: 7z a "..\RedMenu-%VERSION_NAME%.zip" -r "RedMenu\*"
-  - cmd: appveyor PushArtifact RedMenu-%VERSION_NAME%.zip
+  - cmd: cd .. && appveyor PushArtifact RedMenu-%VERSION_NAME%.zip
 deploy:
   - provider: GitHub
     release: "RedMenu $(VERSION_NAME)"

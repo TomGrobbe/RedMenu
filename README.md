@@ -18,6 +18,20 @@ _Coming as soon as this resource is somewhat ready for release._
 Feel free to use code from this repo in your own resources, however you must provide appropriate credit when taking code.
 
 
+## Installation
+1. Update your server to the latest artifacts. Yes it's required, don't ask me why, just f'ing do it already, thanks.
+2. Download the latest [RedMenu Release]() zip file - note not the source files, download the actual release files - and extract the contents of the zip file into your server resources folder (preferrably in the `[local]` folder).
+3. You should now have everything inside: `\resources\[local]\RedMenu\`. If there is no `fxmanifest.lua` in that folder, then you've done it incorrectly.
+A picture for those who can't read: ![](https://vespura.com/hi/i/2019-12-16_17-07_5b40b_2805.png)
+4. Add `start RedMenu` to your `server.cfg`.
+5. Check for any errors in the server console when you boot the server. You can ignore warnings like these when you start up RedMenu: `server thread hitch warning: timer interval of ... milliseconds`.
+
+
+>**No errors/warnings?** Great! Now go celebrate that you've successfully read and followed some super basic instructions correctly.
+
+>**Did you get any errors/warnings?** Well, R.I.P your ego. You've failed to follow the instructions correctly, go back to step 1 and try again.
+
+
 ## Contributions
 Feel free to contribute to this resource. There are just a few things you need to keep in mind:
 -	All code you put into a pull request must be your own, don’t steal code.
