@@ -6,7 +6,9 @@ configuration:
 before_build:
   - cmd: if %APPVEYOR_REPO_TAG%==true (appveyor SetVariable -Name VERSION_NAME -Value %APPVEYOR_REPO_TAG_NAME%) else (appveyor SetVariable -Name VERSION_NAME -Value "dev build")
   - cmd: mkdir "RedMenu Release %VERSION_NAME%"
+  - cmd: cd RedMenu
   - nuget restore
+  - cmd: cd ..
 build:
   parallel: true
   project: RedMenu\RedMenu.sln
