@@ -6,7 +6,7 @@ configuration:
 before_build:
   - cmd: if %APPVEYOR_REPO_TAG%==true (appveyor SetVariable -Name VERSION_NAME -Value %APPVEYOR_REPO_TAG_NAME%) else (appveyor SetVariable -Name VERSION_NAME -Value dev)
   - cmd: cd RedMenu
-  - cmd: mkdir "RedMenu Release %VERSION_NAME%"
+  - cmd: mkdir "RedMenu"
   - nuget restore
   - cmd: cd ..
 build:
@@ -15,11 +15,12 @@ build:
   include_nuget_references: true
   verbosity: minimal
 after_build:
-  - cmd: copy "README.md" "RedMenu\RedMenu Release %VERSION_NAME%\README.md"
-  - cmd: copy "fxmanifest.lua" "RedMenu\RedMenu Release %VERSION_NAME%\fxmanifest.lua"
-  - cmd: copy ".\RedMenu\RedMenuClient\bin\Release\net452\*" "RedMenu\RedMenu Release %VERSION_NAME%\"
-  - cmd: copy ".\RedMenu\RedMenuServer\bin\Release\net452\*" "RedMenu\RedMenu Release %VERSION_NAME%\"
-  - cmd: 7z a "RedMenu-%VERSION_NAME%.zip" -r "RedMenu\RedMenu Release %VERSION_NAME%"
+  - cmd: copy "README.md" "RedMenu\RedMenu\README.md"
+  - cmd: copy "fxmanifest.lua" "RedMenu\RedMenu\fxmanifest.lua"
+  - cmd: copy ".\RedMenu\RedMenuClient\bin\Release\net452\*" "RedMenu\RedMenu\"
+  - cmd: copy ".\RedMenu\RedMenuServer\bin\Release\net452\*" "RedMenu\RedMenu\"
+  - cmd: cd RedMenu
+  - cmd: 7z a "..\RedMenu-%VERSION_NAME%.zip" -r "RedMenu\*"
   - cmd: appveyor PushArtifact RedMenu-%VERSION_NAME%.zip
 deploy:
   - provider: GitHub
