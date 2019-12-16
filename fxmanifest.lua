@@ -7,7 +7,7 @@ version 'v0.0.1'
 -- Actual resource info setup stuff.
 fx_version 'adamant' -- I like this version
 games { 
-    'rdr3' -- Duh
+    'rdr3' -- Read Documentation Really.... 3?
 }
 
 -- Files for the client side.
