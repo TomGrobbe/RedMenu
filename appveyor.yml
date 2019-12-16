@@ -9,7 +9,7 @@ before_build:
   - cmd: mkdir "RedMenu Release %VERSION_NAME%"
 build:
   parallel: true
-  project: RedMenu.sln
+  project: RedMenu\RedMenu.sln
   include_nuget_references: true
   verbosity: minimal
 after_build:
