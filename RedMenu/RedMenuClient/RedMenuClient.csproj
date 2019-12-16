@@ -8,10 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="MenuAPI">
-      <HintPath>MenuAPI.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
+
+    <PackageReference Include="MenuAPI.RedM" Version="3.0.3" />
+
     <Reference Include="Microsoft.CSharp" />
     
     <!-- currently hardcoded path as no nuget package for RedM exists yet -->
@@ -19,6 +18,7 @@
       <HintPath>vendor\cfx\CitizenFX.Core.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Newtonsoft.Json.dll</HintPath>
       <Private>true</Private>
