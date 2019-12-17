@@ -8,7 +8,10 @@ using static CitizenFX.Core.Native.API;
 
 namespace RedMenuServer
 {
-    public class MainServer
+    public class MainServer : BaseScript
     {
+        public MainServer()
+        {
+        }
     }
 }
