@@ -12,6 +12,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;CLIENT</DefineConstants>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\shared\classes\ConfigManager.cs" Link="shared\ConfigManager.cs" />
+    <Compile Include="..\shared\classes\PermissionsManager.cs" Link="shared\PermissionsManager.cs" />
+  </ItemGroup>
 
   <ItemGroup>
 
