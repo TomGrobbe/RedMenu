@@ -6,6 +6,12 @@
     <AssemblyName>RedMenuClient.net</AssemblyName>
     <TargetName>$(AssemblyName)</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;CLIENT</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;CLIENT</DefineConstants>
+  </PropertyGroup>
 
   <ItemGroup>
 
