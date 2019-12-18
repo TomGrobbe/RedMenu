@@ -14,14 +14,11 @@ namespace RedMenuServer
         {
             get
             {
-                return GetConvar("rm_version", "1.0.0");
+                return GetResourceMetadata(GetCurrentResourceName(), "version", 0) ?? "unknown";
             }
-#if SERVER
-            set
-            {
-                SetConvarReplicated("rm_version", value);
-            }
-#endif
         }
+
+
+
     }
 }
