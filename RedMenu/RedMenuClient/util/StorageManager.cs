@@ -99,7 +99,7 @@ namespace RedMenuClient.util
         /// <param name="key"></param>
         /// <param name="output"></param>
         /// <returns>Returns false if the key does not exist.</returns>
-        public static bool Get(string key, out string output)
+        public static bool TryGet(string key, out string output)
         {
             if (!ExistsWithType(key, "string"))
             {
@@ -116,7 +116,7 @@ namespace RedMenuClient.util
         /// <param name="key"></param>
         /// <param name="output"></param>
         /// <returns>Returns false if the key does not exist.</returns>
-        public static bool Get(string key, out int output)
+        public static bool TryGet(string key, out int output)
         {
             if (!ExistsWithType(key, "int"))
             {
@@ -133,7 +133,7 @@ namespace RedMenuClient.util
         /// <param name="key"></param>
         /// <param name="output"></param>
         /// <returns>Returns false if the key does not exist.</returns>
-        public static bool Get(string key, out float output)
+        public static bool TryGet(string key, out float output)
         {
             if (!ExistsWithType(key, "float"))
             {
@@ -150,7 +150,7 @@ namespace RedMenuClient.util
         /// <param name="key"></param>
         /// <param name="output"></param>
         /// <returns>Returns false if the key does not exist.</returns>
-        public static bool Get(string key, out bool output)
+        public static bool TryGet(string key, out bool output)
         {
             if (!ExistsWithType(key, "string"))
             {
@@ -172,7 +172,7 @@ namespace RedMenuClient.util
         /// <param name="key"></param>
         /// <param name="output"></param>
         /// <returns>Returns false if the key does not exist.</returns>
-        public static bool Get(string key, out Vector3 output)
+        public static bool TryGet(string key, out Vector3 output)
         {
             if (ExistsWithType(key, "vector3_x") && ExistsWithType(key, "vector3_y") && ExistsWithType(key, "vector3_z"))
             {
