@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
 
-namespace RedMenuServer
+namespace RedMenuShared
 {
     public static class ConfigManager
     {
@@ -18,6 +18,48 @@ namespace RedMenuServer
             }
         }
 
+
+        public static string ServerInfoSubtitle
+        {
+            get
+            {
+                return GetConvar("server_info_subtitle", "www.vespura.com");
+            }
+        }
+
+
+        public static bool UnlockFullMap
+        {
+            get
+            {
+                return GetConvar("unlock_full_map", "true").ToLower() == "true";
+            }
+        }
+
+
+        public static bool EnablePermissions
+        {
+            get
+            {
+                return GetConvar("enable_permissions", "false").ToLower() == "true";
+            }
+        }
+
+        public static bool IgnoreConfigWarning
+        {
+            get
+            {
+                return GetConvar("ignore_config_warning", "false").ToLower() == "true";
+            }
+        }
+
+        public static bool EnableMaxStats
+        {
+            get
+            {
+                return GetConvar("enable_max_stats", "true").ToLower() == "true";
+            }
+        }
 
 
     }
