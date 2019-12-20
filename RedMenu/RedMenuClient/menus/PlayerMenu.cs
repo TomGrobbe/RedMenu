@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MenuAPI;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
+using CitizenFX.Core.Native;
 
 namespace RedMenuClient.menus
 {
@@ -26,6 +27,23 @@ namespace RedMenuClient.menus
             menu.AddMenuItem(healBtn);
             menu.AddMenuItem(restoreStaminaBtn);
             menu.AddMenuItem(restoreEyeBtn);
+            menu.OnItemSelect += (_menu, _item, _index) =>
+            {
+                int index = (int)_index;
+                switch(index)
+                {
+                    case 0:
+                        Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)0, (int)100);
+                        break;
+                    case 1:
+                        Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)1, (int)100);
+                        break;
+                    case 2:
+                        Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)2, (int)100);
+                        break;
+                }
+                
+            };
         }
 
 
