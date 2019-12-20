@@ -15,13 +15,26 @@ namespace RedMenuClient.util
         /// <summary>
         /// Save a <see cref="string"/> value to client storage.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
+        /// <param name="key">The name of the value you want to store.</param>
+        /// <param name="value">The value to store.</param>
+        /// <param name="overrideExisting">If you want to override any exisiting values with the same key.</param>
         /// <returns>True if save was successful, false if save name is already in use.</returns>
-        public static bool Save(string key, string value)
+        public static bool Save(string key, string value, bool overrideExisting)
         {
             if (Exists(key))
-                return false;
+            {
+                if (overrideExisting)
+                {
+                    if (GetType(key) != typeof(string))
+                    {
+                        Delete(key);
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
             SetResourceKvp($"string_{key}", value);
             return true;
@@ -30,13 +43,26 @@ namespace RedMenuClient.util
         /// <summary>
         /// Save an <see cref="int"/> value to client storage.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
+        /// <param name="key">The name of the value you want to store.</param>
+        /// <param name="value">The value to store.</param>
+        /// <param name="overrideExisting">If you want to override any exisiting values with the same key.</param>
         /// <returns>True if save was successful, false if save name is already in use.</returns>
-        public static bool Save(string key, int value)
+        public static bool Save(string key, int value, bool overrideExisting)
         {
             if (Exists(key))
-                return false;
+            {
+                if (overrideExisting)
+                {
+                    if (GetType(key) != typeof(int))
+                    {
+                        Delete(key);
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
             SetResourceKvpInt($"int_{key}", value);
             return true;
@@ -45,13 +71,26 @@ namespace RedMenuClient.util
         /// <summary>
         /// Save a <see cref="float"/> value to client storage.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
+        /// <param name="key">The name of the value you want to store.</param>
+        /// <param name="value">The value to store.</param>
+        /// <param name="overrideExisting">If you want to override any exisiting values with the same key.</param>
         /// <returns>True if save was successful, false if save name is already in use.</returns>
-        public static bool Save(string key, float value)
+        public static bool Save(string key, float value, bool overrideExisting)
         {
             if (Exists(key))
-                return false;
+            {
+                if (overrideExisting)
+                {
+                    if (GetType(key) != typeof(float))
+                    {
+                        Delete(key);
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
             SetResourceKvpFloat($"float_{key}", value);
             return true;
@@ -60,13 +99,26 @@ namespace RedMenuClient.util
         /// <summary>
         /// Save a <see cref="bool"/> value to client storage.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
+        /// <param name="key">The name of the value you want to store.</param>
+        /// <param name="value">The value to store.</param>
+        /// <param name="overrideExisting">If you want to override any exisiting values with the same key.</param>
         /// <returns>True if save was successful, false if save name is already in use.</returns>
-        public static bool Save(string key, bool value)
+        public static bool Save(string key, bool value, bool overrideExisting)
         {
             if (Exists(key))
-                return false;
+            {
+                if (overrideExisting)
+                {
+                    if (GetType(key) != typeof(string))
+                    {
+                        Delete(key);
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
             // string prefix because it's saved as a string, if there's ever a bool function implemented we'll use a bool prefix to prevent conflicting saved data.
             SetResourceKvp($"string_{key}", value.ToString());
@@ -76,13 +128,26 @@ namespace RedMenuClient.util
         /// <summary>
         /// Save a <see cref="Vector3"/> value to client storage.
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="value"></param>
+        /// <param name="key">The name of the value you want to store.</param>
+        /// <param name="value">The value to store.</param>
+        /// <param name="overrideExisting">If you want to override any exisiting values with the same key.</param>
         /// <returns>True if save was successful, false if save name is already in use.</returns>
-        public static bool Save(string key, Vector3 value)
+        public static bool Save(string key, Vector3 value, bool overrideExisting)
         {
             if (Exists(key))
-                return false;
+            {
+                if (overrideExisting)
+                {
+                    if (GetType(key) != typeof(Vector3))
+                    {
+                        Delete(key);
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
             // Unlikely to ever have a real Vector3 kvp option so it's safe to use vector3_<direction> as a prefix even though it's a float.
             SetResourceKvpFloat($"vector3_x_{key}", value.X);
