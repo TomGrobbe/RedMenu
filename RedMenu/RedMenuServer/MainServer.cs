@@ -19,7 +19,7 @@ namespace RedMenuServer
             }
             else if (!ConfigManager.IgnoreConfigWarning)
             {
-                Debug.WriteLine("^2[RedMenu] You successfully executed the config.cfg file.^7");
+                Debug.WriteLine("^2[RedMenu] You successfully executed the config.cfg file, good job.^7");
             }
 
             if (GetCurrentResourceName() != "RedMenu")
@@ -29,7 +29,7 @@ namespace RedMenuServer
             }
             else
             {
-                Debug.WriteLine("^2[RedMenu] RedMenu is correctly installed, well done.^7");
+                Debug.WriteLine("^2[RedMenu] The resource is installed in the correct folder, well done.^7");
             }
         }
     }
