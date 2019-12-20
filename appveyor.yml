@@ -16,6 +16,7 @@ build:
   verbosity: minimal
 after_build:
   - cmd: copy "README.md" "RedMenu\RedMenu\README.md"
+  - cmd: copy "config.cfg" "RedMenu\RedMenu\config.cfg"
   - cmd: copy "fxmanifest.lua" "RedMenu\RedMenu\fxmanifest.lua"
   - cmd: copy ".\RedMenu\RedMenuClient\bin\Release\net452\*" "RedMenu\RedMenu\"
   - cmd: copy ".\RedMenu\RedMenuServer\bin\Release\net452\*" "RedMenu\RedMenu\"
