@@ -20,35 +20,34 @@ namespace RedMenuClient.menus
             if (setupDone) return;
             setupDone = true;
 
-            MenuItem healBtn = new MenuItem("Max Health", "Restore full Health inner core.");
-            MenuItem restoreStaminaBtn = new MenuItem("Max Stamina", "Restore full Stamina inner core.");
-            MenuItem restoreEyeBtn = new MenuItem("Max Dead Eye", "Restore full Dead Eye inner core.");
+            MenuItem healBtn = new MenuItem("Max Health Core", "Restore Health Core");
+            MenuItem restoreStaminaBtn = new MenuItem("Max Stamina Core", "Restore Stamina Core");
+            MenuItem restoreEyeBtn = new MenuItem("Max DeadEye Core", "Restore DeadEye Core");
 
             menu.AddMenuItem(healBtn);
             menu.AddMenuItem(restoreStaminaBtn);
             menu.AddMenuItem(restoreEyeBtn);
+
             menu.OnItemSelect += (_menu, _item, _index) =>
             {
-                int index = (int)_index;
-                switch(index)
+                if (_item == healBtn)
                 {
-                    case 0:
-                        Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)0, (int)100);
-                        break;
-                    case 1:
-                        Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)1, (int)100);
-                        break;
-                    case 2:
-                        Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)2, (int)100);
-                        break;
+                    Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)0, (int)100); 
                 }
+                else if (_item == restoreStaminaBtn)
+                {
+                    Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)1, (int)100);
+                }
+                else if (_item == restoreEyeBtn)
+                {
+                    Function.Call<int>((Hash)0xC6258F41D86676E0, PlayerPedId(), (int)2, (int)100);
+                }
+                
                 
             };
         }
-
-
+        
         public static Menu GetMenu() { return menu; }
-
 
     }
 }
