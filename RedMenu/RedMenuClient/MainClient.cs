@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using MenuAPI;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
+using CitizenFX.Core.Native;
 using RedMenuShared;
+using RedMenuClient.util;
 
 namespace RedMenuClient
 {
@@ -31,6 +33,8 @@ namespace RedMenuClient
                 Debug.WriteLine("^1[ERROR] RedMenu is not correctly installed. Please make sure that the folder is called RedMenu (case sensitive)! RedMenu will not function if it's incorrectly named.");
             }
 
+            Function.Call((Hash)0xD4EE21B7CC7FD350, UserDefaults.MiscAlwaysShowCores); // _ALWAYS_SHOW_HORSE_CORES
+            Function.Call((Hash)0x50C803A4CD5932C5, UserDefaults.MiscAlwaysShowCores); // _ALWAYS_SHOW_PLAYER_CORES
         }
 
 

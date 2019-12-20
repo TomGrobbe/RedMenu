@@ -22,7 +22,8 @@ namespace RedMenuClient.menus
             if (setupDone) return;
             setupDone = true;
 
-            MenuCheckboxItem minimapKeybind = new MenuCheckboxItem("Minimap Controls", "When enabled, holding down the Select Radar Option button will allow you to toggle the minimap on/off.", UserDefaults.MiscMinimapControls);
+            MenuCheckboxItem minimapKeybind = new MenuCheckboxItem("Minimap Controls", "Holding down the Select Radar Option button will allow you to toggle the minimap on/off when this option is enabled.", UserDefaults.MiscMinimapControls);
+            MenuCheckboxItem showCores = new MenuCheckboxItem("Always Show Cores", "The cores above your radar will always be displayed when this option is enabled. The game will automatically show or hide the cores if this is disabled.");
 
             menu.AddMenuItem(minimapKeybind);
 
@@ -32,8 +33,13 @@ namespace RedMenuClient.menus
                 {
                     UserDefaults.MiscMinimapControls = _checked;
                 }
+                else if (item == showCores)
+                {
+                    UserDefaults.MiscAlwaysShowCores = _checked;
+                    Function.Call((Hash)0xD4EE21B7CC7FD350, UserDefaults.MiscAlwaysShowCores); // _ALWAYS_SHOW_HORSE_CORES
+                    Function.Call((Hash)0x50C803A4CD5932C5, UserDefaults.MiscAlwaysShowCores); // _ALWAYS_SHOW_PLAYER_CORES
+                }
             };
-            
         }
 
         public static Menu GetMenu()

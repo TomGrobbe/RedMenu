@@ -93,5 +93,26 @@ namespace RedMenuClient.util
             }
         }
 
+
+        /// <summary>
+        /// Default: false
+        /// </summary>
+        public static bool MiscAlwaysShowCores
+        {
+            get
+            {
+                if (StorageManager.TryGet("MiscAlwaysShowCores", out bool val))
+                {
+                    return val;
+                }
+                MiscAlwaysShowCores = false;
+                return true;
+            }
+            set
+            {
+                StorageManager.Save("MiscAlwaysShowCores", value, true);
+            }
+        }
+
     }
 }
