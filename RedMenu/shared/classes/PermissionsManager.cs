@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
 using Newtonsoft.Json;
 
-namespace RedMenuServer
+namespace RedMenuShared
 {
     /// <summary>
     /// All permissions.
@@ -16,19 +16,24 @@ namespace RedMenuServer
     {
         // Player Menu
         PMMenu,
-        PMAll,
-        PMHeal,
+        PMRestoreHealth,
         PMRestoreStamina,
+        PMRestoreDeadEye,
+        PMMaxOuterCores,
+        PMGodMode,
         PMInfiniteStamina,
-        PMMaxHealthCore,
-        PMMaxStaminaCore,
-        PMMaxEyeCore,
+        PMInfiniteDeadEye,
+        PMClearTasks,
+        PMHogtieSelf,
+        PMCleanPed,
+        PMSelectPlayerModel,
+        PMSelectOutfit,
+        PM,
 
         // Weapons Menu
         WMMenu,
-        WMAll,
         WMGetAllWeapons,
-        WMGetWeapon,
+        WMGetSingleWeapon,
         WMRemoveAllWeapons,
         WMRemoveCurrentWeapon,
         WMMaxAmmo,
@@ -60,6 +65,10 @@ namespace RedMenuServer
             if (permissionName.StartsWith("PM"))
             {
                 return prefix + ".PlayerMenu." + permissionName.Substring(2);
+            }
+            if (permissionName.StartsWith("WM"))
+            {
+                return prefix + ".WeaponsMenu." + permissionName.Substring(2);
             }
             return null;
         }
@@ -108,6 +117,7 @@ namespace RedMenuServer
                     allowedPermissions.Add(p);
                 }
             }
+            RedMenuClient.MainClient.PermissionsSetupDone = true;
         }
 
         /// <summary>

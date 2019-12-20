@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using MenuAPI;
 using CitizenFX.Core;
 using static CitizenFX.Core.Native.API;
+using CitizenFX.Core.Native;
+using RedMenuShared;
+using RedMenuClient.util;
 
 namespace RedMenuClient.menus
 {
