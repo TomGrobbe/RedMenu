@@ -134,5 +134,16 @@ namespace RedMenuShared
             return false;
         }
 #endif
+#if SERVER
+        internal static bool IsPlayerAllowed(Player player, Permission permission)
+        {
+            if (IsPlayerAceAllowed(player.Handle, GetAceNameFromPermission(Enum.GetName(typeof(Permission), permission))))
+            {
+                return true;
+            }
+
+            return false;
+        }
+#endif
     }
 }
