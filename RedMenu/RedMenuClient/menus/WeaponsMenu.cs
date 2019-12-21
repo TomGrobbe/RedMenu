@@ -22,13 +22,17 @@ namespace RedMenuClient.menus
             if (setupDone) return;
             setupDone = true;
 
-            MenuItem item = new MenuItem("Soon.", "This menu is coming soon.")
+            foreach (var name in data.WeaponsData.WeaponHashes)
             {
-                Enabled = false,
-                LeftIcon = MenuItem.Icon.LOCK
-            };
+                MenuItem item = new MenuItem(name);
+                menu.AddMenuItem(item);
+            }
 
-            menu.AddMenuItem(item);
+            menu.OnItemSelect += (m, item, index) =>
+            {
+                uint model = (uint)GetHashKey(data.WeaponsData.WeaponHashes[index]);
+                GiveWeaponToPed_2(PlayerPedId(), model, 500, true, false, 0, false, 0.5f, 1.0f, 0, false, 0f, false);
+            };
         }
 
         public static Menu GetMenu()
