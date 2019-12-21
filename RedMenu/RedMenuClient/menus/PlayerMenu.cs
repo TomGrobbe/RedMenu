@@ -26,11 +26,10 @@ namespace RedMenuClient.menus
             MenuItem innerHealthCoreBtn = new MenuItem("Max Health Core", "Fully restores the inner Health core.");
             MenuItem innerStaminaCoreBtn = new MenuItem("Max Stamina Core", "Fully restores the inner Stamina core.");
             MenuItem innerDeadEyeCoreBtn = new MenuItem("Max DeadEye Core", "Fully restores the inner DeadEye core.");
-            // Needs more native research.
-            //MenuListItem maxOuterCoresList = new MenuListItem("Restore Outer Core", new List<string>() { "All", "Health", "Stamina", "Dead Eye" }, 0, "Fully restores any or all outer cores to their max value.");
+            MenuListItem maxOuterCoresList = new MenuListItem("Restore Outer Core", new List<string>() { "All", "Health", "Stamina", "Dead Eye" }, 0, "Fully restores any or all outer cores to their max value.");
             MenuCheckboxItem godModeBox = new MenuCheckboxItem("God Mode", "Prevents you from taking damage.", UserDefaults.PlayerGodMode);
-            //MenuCheckboxItem infiniteStamina = new MenuCheckboxItem("Infinite Stamina", "Run forever!", UserDefaults.PlayerInfiniteStamina);
-            //MenuCheckboxItem infiniteDeadEye = new MenuCheckboxItem("Infinite DeadEye", "Useless?", UserDefaults.PlayerInfiniteDeadEye);
+            MenuCheckboxItem infiniteStamina = new MenuCheckboxItem("Infinite Stamina", "Run forever!", UserDefaults.PlayerInfiniteStamina);
+            MenuCheckboxItem infiniteDeadEye = new MenuCheckboxItem("Infinite DeadEye", "Useless?", UserDefaults.PlayerInfiniteDeadEye);
 
             MenuItem clearPedTasks = new MenuItem("Clear Ped Tasks", "Clear all ped tasks immediately, breaking free of any animation.");
             MenuItem hogtieSelf = new MenuItem("Hogtie Yourself", "Knocks you to the ground and get hogtied.");
@@ -75,7 +74,7 @@ namespace RedMenuClient.menus
             }
             if (PermissionsManager.IsAllowed(Permission.PMMaxOuterCores))
             {
-                //menu.AddMenuItem(maxOuterCoresList);
+                menu.AddMenuItem(maxOuterCoresList);
             }
             if (PermissionsManager.IsAllowed(Permission.PMGodMode))
             {
@@ -87,11 +86,11 @@ namespace RedMenuClient.menus
             }
             if (PermissionsManager.IsAllowed(Permission.PMInfiniteStamina))
             {
-                // need more research
+                menu.AddMenuItem(infiniteStamina);
             }
             if (PermissionsManager.IsAllowed(Permission.PMInfiniteDeadEye))
             {
-                // need more research
+                menu.AddMenuItem(infiniteDeadEye);
             }
             if (PermissionsManager.IsAllowed(Permission.PMClearTasks))
             {
@@ -237,33 +236,34 @@ namespace RedMenuClient.menus
                 }
             };
 
-            //menu.OnListItemSelect += (m, item, listIndex, itemIndex) =>
-            //{
-            //    if (item == maxOuterCoresList)
-            //    {
-            //        switch (listIndex)
-            //        {
-            //            // 0x3FC4C027FD0936F4 = Gets the currently set max value for the ped's outer cores, this increases when the ped gains attribute points but will never exceed the absolute max points value. Lowest default for every core is 258.
-            //            // GetMaxAttributePoints = Gets the absolute max points this ped could ever have if their attribute points were maxed out. Default for every core is 1100.
-            //            case 0: // all
-            //                SetAttributePoints(PlayerPedId(), 0, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 0));
-            //                SetAttributePoints(PlayerPedId(), 1, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 1));
-            //                SetAttributePoints(PlayerPedId(), 2, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 2));
-            //                break;
-            //            case 1: // health
-            //                SetAttributePoints(PlayerPedId(), 0, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 0));
-            //                break;
-            //            case 2: // stamina
-            //                SetAttributePoints(PlayerPedId(), 1, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 1));
-            //                break;
-            //            case 3: // dead eye
-            //                SetAttributePoints(PlayerPedId(), 2, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 2));
-            //                break;
-            //            default: // invalid index
-            //                break;
-            //        }
-            //    }
-            //};
+            menu.OnListItemSelect += (m, item, listIndex, itemIndex) =>
+            {
+                if (item == maxOuterCoresList)
+                {
+                    switch (listIndex)
+                    {
+                        case 0: // all
+                            Debug.WriteLine($"Max attribute points for this ped health: {GetAttributePoints(PlayerPedId(), 0)}");
+                            Debug.WriteLine($"Max attribute points for this ped stamina: {GetAttributePoints(PlayerPedId(), 1)}");
+                            Debug.WriteLine($"Max attribute points for this ped dead eye: {GetAttributePoints(PlayerPedId(), 2)}");
+                            //SetAttributePoints(PlayerPedId(), 0, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 0));
+                            //SetAttributePoints(PlayerPedId(), 1, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 1));
+                            //SetAttributePoints(PlayerPedId(), 2, Function.Call<int>((Hash)0x3FC4C027FD0936F4, PlayerPedId(), 2));
+                            break;
+                        case 1: // health
+                            Debug.WriteLine($"Max attribute points for this ped health: {GetAttributePoints(PlayerPedId(), 0)}");
+                            break;
+                        case 2: // stamina
+                            Debug.WriteLine($"Max attribute points for this ped stamina: {GetAttributePoints(PlayerPedId(), 1)}");
+                            break;
+                        case 3: // dead eye
+                            Debug.WriteLine($"Max attribute points for this ped dead eye: {GetAttributePoints(PlayerPedId(), 2)}");
+                            break;
+                        default: // invalid index
+                            break;
+                    }
+                }
+            };
         }
 
         public static Menu GetMenu()
