@@ -23,9 +23,10 @@ namespace RedMenuClient.menus
             setupDone = true;
 
             MenuCheckboxItem minimapKeybind = new MenuCheckboxItem("Minimap Controls", "Holding down the Select Radar Option button will allow you to toggle the minimap on/off when this option is enabled.", UserDefaults.MiscMinimapControls);
-            MenuCheckboxItem showCores = new MenuCheckboxItem("Always Show Cores", "The cores above your radar will always be displayed when this option is enabled. The game will automatically show or hide the cores if this is disabled.");
+            MenuCheckboxItem showCores = new MenuCheckboxItem("Always Show Cores", "The cores above your radar will always be displayed when this option is enabled. The game will automatically show or hide the cores if this is disabled.", UserDefaults.MiscAlwaysShowCores);
 
             menu.AddMenuItem(minimapKeybind);
+            menu.AddMenuItem(showCores);
 
             menu.OnCheckboxChange += (m, item, index, _checked) =>
             {
