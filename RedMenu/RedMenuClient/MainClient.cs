@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +35,13 @@ namespace RedMenuClient
 
             Function.Call((Hash)0xD4EE21B7CC7FD350, UserDefaults.MiscAlwaysShowCores); // _ALWAYS_SHOW_HORSE_CORES
             Function.Call((Hash)0x50C803A4CD5932C5, UserDefaults.MiscAlwaysShowCores); // _ALWAYS_SHOW_PLAYER_CORES
+
+            if (ConfigManager.EnableMaxStats)
+            {
+                SetAttributePoints(PlayerPedId(), 0, GetMaxAttributePoints(PlayerPedId(), 0)); // health
+                SetAttributePoints(PlayerPedId(), 1, GetMaxAttributePoints(PlayerPedId(), 1)); // stamina
+                SetAttributePoints(PlayerPedId(), 2, GetMaxAttributePoints(PlayerPedId(), 2)); // dead eye
+            }
         }
 
 
@@ -55,11 +62,13 @@ namespace RedMenuClient
                 SetMinimapHideFow(true);
             }
 
-            // Needs more research.
-            //if (ConfigManager.EnableMaxStats)
-            //{
-
-            //}
+            //Needs more research.
+            if (ConfigManager.EnableMaxStats)
+            {
+                SetAttributePoints(PlayerPedId(), 0, GetMaxAttributePoints(PlayerPedId(), 0)); // health
+                SetAttributePoints(PlayerPedId(), 1, GetMaxAttributePoints(PlayerPedId(), 1)); // stamina
+                SetAttributePoints(PlayerPedId(), 2, GetMaxAttributePoints(PlayerPedId(), 2)); // dead eye
+            }
         }
 
     }
