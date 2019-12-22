@@ -28,7 +28,7 @@ namespace RedMenuShared
         PMCleanPed,
         PMSelectPlayerModel,
         PMSelectOutfit,
-        PM,
+        PMCustomizeMpPeds,
 
         // Weapons Menu
         WMMenu,
