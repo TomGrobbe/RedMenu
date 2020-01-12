@@ -38,6 +38,16 @@ namespace RedMenuClient.menus
                 MenuController.BindMenuItem(mainMenu, PlayerMenu.GetMenu(), submenuBtn);
             }
 
+            // Entity Spawner
+            MenuController.AddSubmenu(mainMenu, EntitySpawner.GetMenu());
+            MenuItem entityMenuBtn = new MenuItem("Entity Spawner", "Spawn Different Entities")
+            {
+                RightIcon = MenuItem.Icon.ARROW_RIGHT
+            };
+
+            mainMenu.AddMenuItem(entityMenuBtn);
+            MenuController.BindMenuItem(mainMenu, EntitySpawner.GetMenu(), entityMenuBtn);
+
             // Weapons Menu
             if (PermissionsManager.IsAllowed(Permission.WMMenu))
             {
@@ -51,6 +61,7 @@ namespace RedMenuClient.menus
                 MenuController.BindMenuItem(mainMenu, WeaponsMenu.GetMenu(), submenuBtn);
             }
 
+            // Scripts Menu
             MenuController.AddSubmenu(mainMenu, ScriptMenu.GetMenu());
             MenuItem scriptsBtn = new MenuItem("Script Options", "A bunch of scripts which are able to be toggled here.")
             {
