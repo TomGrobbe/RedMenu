@@ -31,6 +31,15 @@ namespace RedMenuServer
             {
                 Debug.WriteLine("^2[RedMenu] The resource is installed in the correct folder, well done.^7");
             }
+            EventHandlers.Add("RedMenu:GetPing", new Action<Player>(GetPing));
+        }
+        private void GetPing([FromSource] Player myplayer)
+        {
+            foreach (Player p in Players)
+            {
+                p.TriggerEvent("RedMenu:PingResult", GetPlayerPing(myplayer.Handle));
+                //Debug.WriteLine($"{GetPlayerPing(myplayer.Handle)}");            
+            }
         }
     }
 }

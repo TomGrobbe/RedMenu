@@ -51,6 +51,15 @@ namespace RedMenuClient.menus
                 MenuController.BindMenuItem(mainMenu, WeaponsMenu.GetMenu(), submenuBtn);
             }
 
+            MenuController.AddSubmenu(mainMenu, ScriptMenu.GetMenu());
+            MenuItem scriptsBtn = new MenuItem("Script Options", "A bunch of scripts which are able to be toggled here.")
+            {
+                RightIcon = MenuItem.Icon.ARROW_RIGHT
+            };
+
+            mainMenu.AddMenuItem(scriptsBtn);
+            MenuController.BindMenuItem(mainMenu, ScriptMenu.GetMenu(), scriptsBtn);
+
 
             // Misc settings
             MenuController.AddSubmenu(mainMenu, MiscSettingsMenu.GetMenu());
