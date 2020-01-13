@@ -17,6 +17,7 @@ namespace RedMenuClient.menus
         private static Menu menu = new Menu("Player Menu", "Player Related Options");
         private static bool setupDone = false;
         private static Menu appearanceMenu = new Menu("Ped Appearance", "Player Customization");
+        private static bool Invisible = false;
 
         private static void SetupMenu()
         {
@@ -30,6 +31,7 @@ namespace RedMenuClient.menus
             MenuCheckboxItem godModeBox = new MenuCheckboxItem("God Mode", "Prevents you from taking damage.", UserDefaults.PlayerGodMode);
             MenuCheckboxItem infiniteStamina = new MenuCheckboxItem("Infinite Stamina", "Run forever!", UserDefaults.PlayerInfiniteStamina);
             MenuCheckboxItem infiniteDeadEye = new MenuCheckboxItem("Infinite DeadEye", "Useless?", UserDefaults.PlayerInfiniteDeadEye);
+            MenuCheckboxItem invisiblePlayer = new MenuCheckboxItem("Invisible", "Makes the character invisible.", Invisible);
 
             MenuItem clearPedTasks = new MenuItem("Clear Ped Tasks", "Clear all ped tasks immediately, breaking free of any animation.");
             MenuItem hogtieSelf = new MenuItem("Hogtie Yourself", "Knocks you to the ground and get hogtied.");
@@ -58,8 +60,10 @@ namespace RedMenuClient.menus
                 return "0";
             }), "Select a predefined outfit for this ped. Outfits are made by Rockstar. Note the selected value can go up indefinitely because we don't know how to check for the max amount of outfits yet, so more native research is needed.");
 
-
-
+            if (PermissionsManager.IsAllowed(Permission.PMInvisible))
+            {
+                menu.AddMenuItem(invisiblePlayer);
+            }
             if (PermissionsManager.IsAllowed(Permission.PMRestoreHealth))
             {
                 menu.AddMenuItem(innerHealthCoreBtn);
@@ -590,6 +594,21 @@ namespace RedMenuClient.menus
                 {
                     UserDefaults.PlayerGodMode = _checked;
                     SetEntityInvincible(PlayerPedId(), _checked);
+                }
+                else if (item == invisiblePlayer)
+                {
+                    Invisible = _checked;
+                    var player = PlayerPedId();
+                    if (Invisible == true)
+                    {
+                        SetEntityInvincible(player, true);
+                        SetEntityVisible(player, false);
+                    }
+                    else
+                    {
+                        SetEntityInvincible(player, false);
+                        SetEntityVisible(player, true);
+                    }
                 }
             };
 

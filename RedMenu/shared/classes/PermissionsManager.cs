@@ -16,6 +16,7 @@ namespace RedMenuShared
     {
         // Player Menu
         PMMenu,
+        PMInvisible,
         PMRestoreHealth,
         PMRestoreStamina,
         PMRestoreDeadEye,
