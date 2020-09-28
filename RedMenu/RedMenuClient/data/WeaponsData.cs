@@ -59,6 +59,12 @@ namespace RedMenuClient.data
             "WEAPON_BOW",
             "WEAPON_THROWN_DYNAMITE",
             "WEAPON_THROWN_MOLOTOV",
+            "WEAPON_REVOLVER_NAVY",
+            "WEAPON_RIFLE_ELEPHANT",
+            "WEAPON_REPEATER_EVANS",
+            "WEAPON_BOW_IMPROVED",
+            "WEAPON_MELEE_MACHETE_HORROR",
+            "WEAPON_THROWN_BOLAS",
         };
     }
 }
